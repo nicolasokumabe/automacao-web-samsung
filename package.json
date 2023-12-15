@@ -1,0 +1,22 @@
+{
+  "name": "automacao-web-samsung",
+  "version": "1.0.0",
+  "description": "Automacao da funcao de carrinho de compras do site Samsung",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasokumabe/automacao-web-samsung.git"
+  },
+  "author": "Nicolas Kumabe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicolasokumabe/automacao-web-samsung/issues"
+  },
+  "homepage": "https://github.com/nicolasokumabe/automacao-web-samsung#readme",
+  "devDependencies": {
+    "cypress": "^13.6.1"
+  }
+}

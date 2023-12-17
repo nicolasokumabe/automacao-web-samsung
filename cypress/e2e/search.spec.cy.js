@@ -30,5 +30,8 @@ describe('home page', () => {
         //     const valorLimpo = text.replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
 
         //     const valorDecimal = parseFloat(valorLimpo);
+
+        // clica no botao de compra
+        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora').click()
     })
 })

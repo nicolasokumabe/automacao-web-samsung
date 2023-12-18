@@ -32,6 +32,16 @@ describe('home page', () => {
         //     const valorDecimal = parseFloat(valorLimpo);
 
         // clica no botao de compra
-        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora').click()
+        // cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora')
+        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').click().wait(5000)
+
+        cy.get('[class="vtex-radio__input absolute o-0 pointer"][value="1814"]').click()
+
+        // pagina de loading
+        // cy.get('div[class="mb9"] p').should('have.text', 'Você será direcionado para continuar sua compra')
+
+        // inserindo cep
+        // cy.get('input[placeholder="Digite o CEP"]').type('01310930')
+
     })
 })

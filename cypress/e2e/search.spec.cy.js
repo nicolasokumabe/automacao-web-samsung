@@ -1,7 +1,7 @@
 describe('home page', () => {
     it('pesquisando por smartphone', () => {
         // visita o site
-        cy.viewport(1440, 900)
+        // cy.viewport(1440, 900)
         cy.visit('https://www.samsung.com/br/')
 
         // pesquisa e seleciona o aparelho
@@ -33,8 +33,9 @@ describe('home page', () => {
 
         // clica no botao de compra
         // cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora')
-        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').click().wait(5000)
+        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').click()
 
+        wait(1000)
         cy.get('[class="vtex-radio__input absolute o-0 pointer"][value="1814"]').click()
 
         // pagina de loading

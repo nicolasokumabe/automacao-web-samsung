@@ -24,9 +24,19 @@ describe('home page', () => {
         cy.get('ul li div input[an-la="storage:256 gb"] + label span span span').should('have.text', 'R$ 4.499,00')
         cy.get('ul li div input[an-la="storage:128 gb"] + label span span span').should('not.have.text')
 
-        // // clica no botao de compra
-        // cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora').click()
-        // cy.contains('continuar sua compra')
+        // cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').click()
 
+        cy.on('uncaught:exception', (err, runnable) => {
+            console.log(err);
+            return false;
+        });
+
+        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora').click()
+        cy.contains('continuar sua compra')
+        cy.wait(20000)
+        // cy.visit('https://www.samsung.com/br/smartphones/galaxy-s/galaxy-s23-fe-mint-128gb-sm-s711blgjzto/') 
+        // // clica no botao de compra
+        cy.get('div[class="vtex-flex-layout-0-x-flexRow vtex-flex-layout-0-x-flexRow--page-product-info"]')
+        cy.get('.samsungbr-app-pdp-2-x-inputPostalCode').type('01310930')
     })
 })

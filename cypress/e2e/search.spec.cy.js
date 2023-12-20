@@ -1,7 +1,7 @@
 describe('home page', () => {
     it('pesquisando por smartphone', () => {
         // visita o site
-        cy.viewport(1440, 900)
+        // cy.viewport(1440, 900)
         cy.visit('https://www.samsung.com/br/')
 
         // pesquisa e seleciona o aparelho
@@ -24,24 +24,9 @@ describe('home page', () => {
         cy.get('ul li div input[an-la="storage:256 gb"] + label span span span').should('have.text', 'R$ 4.499,00')
         cy.get('ul li div input[an-la="storage:128 gb"] + label span span span').should('not.have.text')
 
-        // //valida o desconto de 10%
-        // cy.get('ul li div input[an-la="storage:256 gb"] + label span span span').invoke('text').then((text) => {
-
-        //     const valorLimpo = text.replace('R$', '').replace(/\./g, '').replace(',', '.').trim();
-
-        //     const valorDecimal = parseFloat(valorLimpo);
-
-        // clica no botao de compra
-        // cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora')
-        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').click().wait(5000)
-
-        cy.get('[class="vtex-radio__input absolute o-0 pointer"][value="1814"]').click()
-
-        // pagina de loading
-        // cy.get('div[class="mb9"] p').should('have.text', 'Você será direcionado para continuar sua compra')
-
-        // inserindo cep
-        // cy.get('input[placeholder="Digite o CEP"]').type('01310930')
+        // // clica no botao de compra
+        // cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora').click()
+        // cy.contains('continuar sua compra')
 
     })
 })

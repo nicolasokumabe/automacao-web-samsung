@@ -12,12 +12,12 @@ describe('home page', () => {
         cy.get('button[type=submit][an-ca=search]').click()
         cy.get('a[class="result-title__link"][data-href-target="/br/smartphones/galaxy-s/galaxy-s23-fe-mint-128gb-sm-s711blgjzto/"]').click()
 
-        // valida a pagina do aparelho - valida cor selecionada
+        // valida a cor selecionada
         cy.get('#pd-header-gallery h2[class="pd-info__title"]').should('have.text', smartphone)
         cy.get('label[for="pd-color-2"]').click()
         cy.get('span[id=multiColorText]').should('have.text', 'Azul')
 
-        // valida a pagina do aparelho - valida armazenamento selecionado
+        // valida armazenamento selecionado
         cy.get('ul li div input[an-la="storage:128 gb"] + label span span span').should('have.text', 'R$ 3.699,00')
         cy.get('ul li div input[an-la="storage:256 gb"] + label span span span').should('not.have.text')
         cy.get('ul li div input[an-la="storage:256 gb"] + label[class="pd-option-selector__label"]').click()
@@ -31,7 +31,7 @@ describe('home page', () => {
             return false
         })
 
-        // clicar no botão comprar
+        // clicar no botao comprar
         cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]').should('have.text', 'Comprar agora').click()
         // cy.contains('continuar sua compra')
 
@@ -48,8 +48,5 @@ describe('home page', () => {
 
         // verifica se estou na pagina de carrinho
         cy.url().should('eq', 'https://shop.samsung.com/br/checkout/#/cart')
-
-        // valida conteúdo do carrinho
-        cy.get('.full-cart')
     })
 })

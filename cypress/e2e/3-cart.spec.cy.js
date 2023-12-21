@@ -1,5 +1,5 @@
 describe('home page', () => {
-    it('pesquisando por smartphone', () => {
+    it('pesquisando por monitor', () => {
         // visita o site
         // cy.viewport(1440, 900)
         cy.visit('https://www.samsung.com/br/')

@@ -36,7 +36,7 @@ describe('home page', () => {
         // cy.contains('continuar sua compra')
 
         // confere a existência do produto pela classe
-        cy.get('div[class="vtex-flex-layout-0-x-flexRow vtex-flex-layout-0-x-flexRow--page-product-info"]')
+        cy.get('div[class="vtex-flex-layout-0-x-flexRow vtex-flex-layout-0-x-flexRow--page-product-info"]', { timeout: 60000 })
 
         // digitando e pesquisando o cep
         cy.get('input[placeholder="Digite o CEP"]', { timeout: 60000 }).type('01310930')
@@ -48,5 +48,44 @@ describe('home page', () => {
 
         // verifica se estou na pagina de carrinho
         cy.url().should('eq', 'https://shop.samsung.com/br/checkout/#/cart')
+    })
+    it('cep em branco', () => {
+        // visita o site
+        // cy.viewport(1440, 900)
+        cy.visit('https://www.samsung.com/br/')
+
+        const fone = 'Galaxy Buds FE'
+
+        // pesquisa e seleciona o aparelho
+        cy.get('button[class="nv00-gnb__utility-btn gnb__search-btn-js"]').click()
+        cy.get('#gnb-search-keyword').type(fone)
+        cy.get('button[type=submit][an-ca=search]').click()
+        cy.get('a[class="result-title__link"][data-href-target="/br/smartphones/galaxy-s/galaxy-s23-fe-mint-128gb-sm-s711blgjzto/"]')
+            .click()
+
+        // ignorar token
+        cy.on('uncaught:exception', (err, runnable) => {
+            console.log(err)
+            return false
+        })
+
+        // clicar no botao comprar
+        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]')
+            .should('have.text', 'Comprar agora').click()
+        // cy.contains('continuar sua compra')
+
+        // confere a existência do produto pela classe
+        cy.get('div[class="flex mt0 mb0 pt0 pb0    justify-start vtex-flex-layout-0-x-flexRowContent vtex-flex-layout-0-x-flexRowContent--page-product-info items-stretch w-100"]', { timeout: 60000 })
+
+        // não digita o cep
+        cy.get('input[placeholder="Digite o CEP"]', { timeout: 60000 }).type(null)
+
+        // clica em comprar
+        cy.get('div[class="vtex-flex-layout-0-x-flexColChild vtex-flex-layout-0-x-flexColChild--product-content-buy-info pb0"] button[type="button"] span')
+            .should('have.text', 'COMPRAR AGORA').click({ force: true })
+
+        // valida mensagem de erro
+        cy.get('span[id="error-message-cep-pdp"]')
+            .should('have.text', 'CEP válido obrigatório.')
     })
 })

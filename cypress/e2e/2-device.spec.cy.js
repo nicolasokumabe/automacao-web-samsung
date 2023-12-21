@@ -1,4 +1,4 @@
-describe('home page', () => {
+describe('product page', () => {
     it('pesquisando por smartphone', () => {
         // visita o site
         // cy.viewport(1440, 900)
@@ -60,7 +60,7 @@ describe('home page', () => {
         cy.get('button[class="nv00-gnb__utility-btn gnb__search-btn-js"]').click()
         cy.get('#gnb-search-keyword').type(fone)
         cy.get('button[type=submit][an-ca=search]').click()
-        cy.get('a[class="result-title__link"][data-href-target="/br/smartphones/galaxy-s/galaxy-s23-fe-mint-128gb-sm-s711blgjzto/"]')
+        cy.get('a[class="result-img__link"][data-href-target="/br/audio-sound/galaxy-buds/galaxy-buds-fe-graphite-sm-r400nzapzto/"]')
             .click()
 
         // ignorar token
@@ -70,7 +70,7 @@ describe('home page', () => {
         })
 
         // clicar no botao comprar
-        cy.get('span a[aria-label="Comprar agora:Galaxy S23 FE"]')
+        cy.get('span a[aria-label="Comprar agora:Galaxy Buds FE"]')
             .should('have.text', 'Comprar agora').click()
         // cy.contains('continuar sua compra')
 
@@ -78,7 +78,7 @@ describe('home page', () => {
         cy.get('div[class="flex mt0 mb0 pt0 pb0    justify-start vtex-flex-layout-0-x-flexRowContent vtex-flex-layout-0-x-flexRowContent--page-product-info items-stretch w-100"]', { timeout: 60000 })
 
         // não digita o cep
-        cy.get('input[placeholder="Digite o CEP"]', { timeout: 60000 }).type(null)
+        cy.get('input[placeholder="Digite o CEP"]', { timeout: 60000 })
 
         // clica em comprar
         cy.get('div[class="vtex-flex-layout-0-x-flexColChild vtex-flex-layout-0-x-flexColChild--product-content-buy-info pb0"] button[type="button"] span')

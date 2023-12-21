@@ -1,4 +1,4 @@
-describe('home page', () => {
+describe('cart page', () => {
     it('pesquisando por monitor', () => {
         // visita o site
         // cy.viewport(1440, 900)

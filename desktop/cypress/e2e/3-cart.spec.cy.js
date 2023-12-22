@@ -1,7 +1,8 @@
-describe('cart page', () => {
+describe('cart pagen', () => {
     it('pesquisando por monitor', () => {
         // visita o site
         // cy.viewport(1440, 900)
+        // cy.viewport(430, 932)
         cy.visit('https://www.samsung.com/br/')
 
         const monitor = 'Monitor Samsung Odyssey G30 24”'

@@ -1,4 +1,4 @@
-describe('search page', () => {
+describe('search page ', () => {
     it('pesquisando por tablet', () => {
         // visita o site
         // cy.viewport(1440, 900)

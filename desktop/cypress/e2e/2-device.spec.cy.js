@@ -1,5 +1,5 @@
 describe('product page', () => {
-    it('pesquisando por smartphone', () => {
+    it('validacao detalhada do produto', () => {
         // visita o site
         // cy.viewport(1440, 900)
         cy.visit('https://www.samsung.com/br/')
@@ -18,7 +18,7 @@ describe('product page', () => {
         cy.get('span[id=multiColorText]').should('have.text', 'Azul')
 
         // valida armazenamento selecionado
-        cy.get('ul li div input[an-la="storage:128 gb"] + label span span span').should('have.text', 'R$ 3.699,00')
+        cy.get('ul li div input[an-la="storage:128 gb"] + label span span span').should('have.text', 'R$ 3.999,00')
         cy.get('ul li div input[an-la="storage:256 gb"] + label span span span').should('not.have.text')
         cy.get('ul li div input[an-la="storage:256 gb"] + label[class="pd-option-selector__label"]').click()
         cy.get('.pd-option-selector__sub-text').should('not.have.text')
